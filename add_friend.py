@@ -3,15 +3,26 @@ class Person(object):
         self.name = name
         self.email = email
         self.phone = phone
+        self.friends = []
 
     def greet(self, other_person):
         print 'Hello %s, I am %s!' % (other_person.name, self.name)
 
+    def print_contact_info(self):
+        print self.name, self.email, self.phone
+
+    def add_friend(self, other_person):
+        self.friends.append(other_person)
+
 sonny = Person('Sonny', 'sonny@hotmail.com', '483-485-4948')
 jordan = Person('Jordan', 'jordan@aol.com', '495-586-3456')
 
-sonny.greet(jordan)
-jordan.greet(sonny)
+# sonny.greet(jordan)
+# jordan.greet(sonny)
 
-print "Sonny's email is %s and number is %s" % (sonny.email, sonny.phone)
-print "Jordan's email is %s and number is %s" % (jordan.email, jordan.phone)
+# sonny.print_contact_info()
+# jordan.print_contact_info()
+
+jordan.add_friend(sonny)
+
+print len(jordan.friends)
